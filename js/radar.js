@@ -1,10 +1,9 @@
-import * as d3 from 'd3';
-import d3tip from 'd3-tip';
+//import * as d3 from 'd3';
+//import d3tip from 'd3-tip';
 
 
 var RadarChart = function () {
-    d3.csv(this, function(data) {
-        
+    //d3.csv(this, function(data) {
         var width = 800,
             height = 600,
             maxValue = 0,
@@ -43,7 +42,6 @@ var RadarChart = function () {
             section.each(function(data){
                 var ele = d3.select(this);
                 var svg = ele.selectAll("svg").data([data]);
-
                 var gEnter = svg.enter()
                                 .append("svg")
                                 .attr("width", width)
@@ -55,7 +53,7 @@ var RadarChart = function () {
                         .attr('height', drawHeight)
                         .attr('width', drawWidth)
                         .attr("class", "chartG");
-
+                console.log(data);
                 maxValue = Math.max(maxValue, d3.max(data, function(d) {
                     return d3.max(d.axes, function(o) { return o.value; });
                 }));
@@ -314,8 +312,8 @@ var RadarChart = function () {
         };
         return chart
 
-    });
+    //});
 
 };
 
-export default RadarChart;
+//export default RadarChart;
